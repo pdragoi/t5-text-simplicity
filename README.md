@@ -1,8 +1,28 @@
-# T5 for Text Difficulty
+# T5 for Comparing Text Difficulty <!-- omit from toc -->
 
 This repository contains a neural network model based on the T5 model that compares two texts and outputs which one is easier to understand.
 
-The problem was formulated as a question answering one: Given a `context`, containing `Text A` and `Text B`, the model was asked `Which of Text A and Text B is easier to understand?`. Variations on the questions were done, such as `Which of Text A and Text B is easier to understand?` or `Which of Text A and Text B is easier to understand?`, with the optional addition of `1 for Text A, 0 for Text B.` at the end. No significant changes occured in the results, so the model was trained with the first question + the optional addition, due to easier formatting of the output. One thing that did improve the results somewhat was the removal of newlines from the texts, as the model was trained on a single line of text.
+## Table of Contents <!-- omit from toc -->
+- [Introduction](#introduction)
+- [Results](#results)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Usage](#usage)
+  - [Training](#training)
+    - [Arguments](#arguments)
+  - [Evaluation](#evaluation)
+    - [Arguments](#arguments-1)
+  - [Inference](#inference)
+    - [Arguments](#arguments-2)
+- [Plots](#plots)
+  - [Based on t5-small](#based-on-t5-small)
+  - [Based on t5-base](#based-on-t5-base)
+- [Authors](#authors)
+
+
+## Introduction
+
+The problem was formulated as a question answering one: Given a `context`, containing `Text A` and `Text B`, the model was asked a `question`: `Which of Text A and Text B is easier to understand?`. Variations on the questions were done, such as `Which of Text A and Text B is easier to understand?` or `Which of Text A and Text B is easier to understand?`, with the optional addition of `1 for Text A, 0 for Text B.` at the end. No significant changes occured in the results, so the model was trained with the first question + the optional addition, due to easier formatting of the output. One thing that did improve the results somewhat was the removal of newlines from the texts, as the model was trained on a single line of text.
 
 ## Results
 
@@ -18,7 +38,7 @@ The model was trained on a custom dataset, containing 4724 unique texts and 4747
 | t5-small + training | 32 | 1e-3 | 10 | 65.35% |
 
 
-Since the training was arriving at a plateau after not too many epochs, I didn't find the need to test it for more. The results are not very good, but they are better than random guessing, which would have an accuracy of 50%. The model was trained both on single and two GPUs, with no significant changes in the final accuracy. Also, no significant changes were observed when using the `t5-base` model instead of the `t5-small` one, even though the resources required for training the former were much higher.
+Since the training was arriving at a plateau after not too many epochs, I didn't find the need to test it for more. The results are not very good, but they are better than random guessing, which would have an accuracy of 50%. The model was trained both on single and two GPUs, with no significant changes in the final accuracy. Also, no significant changes were observed when using the `t5-base` model instead of the `t5-small` one, even though the resources required for training the former were much higher. Some plots can be found in the [Plots](##Plots) section.
 
 
 
@@ -122,6 +142,17 @@ python inference.py
 - `--seed`: The seed for the random number generator. Default: `42`.
 - `--debug`: Whether to run the script in debug mode. Default: `False`.
 - `--save_path`: The path to save the predictions. Default: `./predictions.csv`.
+
+
+## Plots
+
+### Based on t5-small
+![loss](./plots/default-small/loss.png)
+![accuracy](./plots/default-small/scores.png)
+
+### Based on t5-base
+![loss](./plots/default-base/loss.png)
+![accuracy](./plots/default-base/scores.png)
 
 
 ## Authors
