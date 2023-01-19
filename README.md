@@ -28,6 +28,8 @@ The problem was formulated as a question answering one: Given a `context`, conta
 
 The model was trained on a custom dataset, containing 4724 unique texts and 47478 pairs of texts. The dataset was split into 38939 pairs for training, 4194 pairs for validation and 4345 pairs for test. The model was tested starting from `t5-base` and `t5-small`, with varying parameters for learning rate, batch size and number of epochs. The model was evaluated on the validation set and *SOME OF* the results are the following:
 
+<div style="page-break-after: always;"></div>
+
 | Model | Batch Size | Learning Rate | Epochs | Accuracy |
 | --- | --- | --- | --- | --- |
 | t5-base | 4 | - | - | 0.0 |
@@ -143,12 +145,15 @@ python inference.py
 - `--debug`: Whether to run the script in debug mode. Default: `False`.
 - `--save_path`: The path to save the predictions. Default: `./predictions.csv`.
 
+<div style="page-break-after: always;"></div>
 
 ## Plots
 
 ### Based on t5-small
 ![loss](./plots/default-small/loss.png)
 ![accuracy](./plots/default-small/scores.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Based on t5-base
 ![loss](./plots/default-base/loss.png)
