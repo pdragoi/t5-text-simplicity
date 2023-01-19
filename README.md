@@ -26,19 +26,19 @@ The problem was formulated as a question answering one: Given a `context`, conta
 
 ## Results
 
-The model was trained on a custom dataset, containing 4724 unique texts and 47478 pairs of texts. The dataset was split into 38939 pairs for training, 4194 pairs for validation and 4345 pairs for test. The model was tested starting from `t5-base` and `t5-small`, with varying parameters for learning rate, batch size and number of epochs. The model was evaluated on the validation set and SOME OF the results are the following:
+The model was trained on a custom dataset, containing 4724 unique texts and 47478 pairs of texts. The dataset was split into 38939 pairs for training, 4194 pairs for validation and 4345 pairs for test. The model was tested starting from `t5-base` and `t5-small`, with varying parameters for learning rate, batch size and number of epochs. The model was evaluated on the validation set and *SOME OF* the results are the following:
 
 | Model | Batch Size | Learning Rate | Epochs | Accuracy |
 | --- | --- | --- | --- | --- |
 | t5-base | 4 | - | - | 0.0 |
 | t5-small | 4 | - | - | 0.0 |
-| t5-base + training | 16 | 1e-4 | 4 | 0.0 |
+| t5-base + training | 16 | 1e-4 | 4 | 66% |
 | t5-small + training | 64 | 1e-4 | 6 | 68.4% |
 | t5-small + training | 32 | 1e-4 | 10 | 67.5% |
 | t5-small + training | 32 | 1e-3 | 10 | 65.35% |
 
 
-Since the training was arriving at a plateau after not too many epochs, I didn't find the need to test it for more. The results are not very good, but they are better than random guessing, which would have an accuracy of 50%. The model was trained both on single and two GPUs, with no significant changes in the final accuracy. Also, no significant changes were observed when using the `t5-base` model instead of the `t5-small` one, even though the resources required for training the former were much higher. Some plots can be found in the [Plots](##Plots) section.
+Since the training was arriving at a plateau after not too many epochs, I didn't find the need to test it for more. The results are not very good, but they are better than random guessing, which would have an accuracy of 50%. The model was trained both on single and two GPUs, with no significant changes in the final accuracy. Also, no significant changes were observed when using the `t5-base` model instead of the `t5-small` one, even though the resources required for training the former were much higher. Some plots can be found in the [Plots](#plots) section.
 
 
 
